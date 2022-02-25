@@ -1,6 +1,6 @@
 FROM ubuntu
 RUN apt-get update && \
-  apt-get install -y curl zip jq netcat-openbsd less bash-completion vim-tiny && \
+  apt-get install -y curl zip jq netcat-openbsd less bash-completion vim-tiny openssh-client && \
   rm -rf /var/lib/apt/lists
 
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
