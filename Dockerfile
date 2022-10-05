@@ -1,7 +1,9 @@
 FROM ubuntu
 RUN apt-get update && \
-  apt-get install -y curl zip jq netcat-openbsd less bash-completion vim-tiny openssh-client && \
+  apt-get install -y curl zip jq netcat-openbsd less bash-completion vim-tiny openssh-client dnsutils iputils-ping net-tools postgresql-client && \
   rm -rf /var/lib/apt/lists
+
+RUN curl -o grpcurl.tgz -L https://github.com/fullstorydev/grpcurl/releases/download/v1.8.6/grpcurl_1.8.6_linux_x86_64.tar.gz && tar -xf grpcurl.tgz -C /usr/bin && rm -f grpcurl.tgz
 
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
   unzip awscliv2.zip && \
